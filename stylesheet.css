@@ -2,6 +2,16 @@ body {
     margin: 0px;
 }
 
+#game {
+    width: 100vw;
+    height: 56.25vw;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+
 /********** TITELSKÆRM ********/
 #menu_background {
     background-image: url("img/titelside.svg");
@@ -283,7 +293,7 @@ body {
 }
 
 #settings_knap2 {
-      background-image: url("img/settingsroedknap.svg");
+    background-image: url("img/settingsroedknap.svg");
     background-size: 100%;
     width: 2vw;
     height: 2.1vw;
