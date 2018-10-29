@@ -3,16 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Grab em' by the Puss!</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
     <div id="screen">
-        <div id="menu_background">
+        <div id="menu_background" class="hide">
             <div id="menu_play"></div>
             <div id="menu_settings"></div>
-            <div id="menu_cat"></div>
+            <div id="menu_cat" class="catarm"></div>
 
         </div>
         <div id="game">
@@ -21,39 +21,43 @@
 
             <div id="game_elements">
 
-                <div id="kvindefg"></div>
-                <div id="kvindebg"></div>
-                <div id="katfg"></div>
-                <div id="katbg"></div>
-                <div id="twitter"></div>
+
+                <div id="katbg" class="rtl"></div>
+                <div id="kvindebg" class="ltr"></div>
+                <div id="katfg" class="rtl"></div>
+                <div id="kvindefg" class="ltr"></div>
+
+                <div id="twitter" class="tweet"></div>
 
 
             </div>
 
             <div id="game_ui">
                 <div id="points"></div>
-                <div id="energy"></div>
-                <div id="energy2"></div>
-                <div id="energy3"></div>
-
+                <div id="life1"></div>
+                <div id="dead1" class="hide"></div>
+                <div id="life2"></div>
+                <div id="dead2" class="hide"></div>
+                <div id="life3"></div>
+                <div id="dead3" class="hide"></div>
                 <div id="time"></div>
             </div>
 
         </div>
 
-        <div id="start">
+        <div id="start" class="hide">
             <div id="start_play"></div>
         </div>
-        <div id="settings">
+        <div id="settings" class="hide">
             <div id="settings_knap1"></div>
             <div id="settings_knap2"></div>
             <div id="settings_knap3"></div>
             <div id="settings_knap4"></div>
         </div>
-        <div id="gameover">
+        <div id="gameover" class="hide">
             <div id="playagain_knap"></div>
         </div>
-        <div id="complete">
+        <div id="complete" class="hide">
             <div id="playagain_knap2"></div>
         </div>
 
