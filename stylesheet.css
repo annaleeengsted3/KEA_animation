@@ -15,118 +15,6 @@ body {
 }
 
 
-/********** TITELSKÆRM ********/
-#start {
-    background-image: url("img/titelside.svg");
-    background-size: cover;
-    width: 100vw;
-    height: 56.25vw;
-    z-index: 100;
-    position: absolute;
-    /**** SKAL HAVE  class="fade_out"*********/
-}
-
-.fade_out {
-    animation-name: fade_out_kf;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-
-@keyframes fade_out_kf {
-
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
-.fade_in {
-    animation-name: fade_in_kf;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-
-
-}
-
-
-@keyframes fade_in_kf {
-
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-#start_play {
-    background-image: url("img/playknapv2.svg");
-    width: 17.25vw;
-    height: 6vw;
-    position: absolute;
-    top: 20vw;
-    left: 64vw;
-    background-size: 100%;
-
-
-}
-
-#start_settings {
-    background-image: url("img/settingsknap.svg");
-    width: 17.25vw;
-    height: 6.6vw;
-    position: absolute;
-    top: 30vw;
-    left: 64vw;
-    background-size: 100%;
-
-
-}
-
-#start_cat {
-    background-image: url("img/kattearmv2.svg");
-    width: 18.27vw;
-    height: 26.7vw;
-    position: absolute;
-    top: -27vw;
-    left: 58vw;
-    background-size: 100%;
-
-
-}
-
-.catarm {
-    animation-name: catarm_kf;
-    animation-duration: 6s;
-    animation-iteration-count: 2;
-
-}
-
-@keyframes catarm_kf {
-    0% {
-        transform: translateY(0vw);
-    }
-
-    50% {
-        transform: translateY(20vw);
-    }
-
-    100% {
-        transform: translateY(0vw);
-    }
-
-
-}
-
-
-/********** TITELSKÆRM SLUT ********/
 
 /********** SPILSKÆRM BAGGRUND OG FORGRUND********/
 
@@ -392,7 +280,146 @@ body {
 
 
 
-/********** POPUP********/
+
+/********** TITELSKÆRM ********/
+#start {
+    background-image: url("img/titelside.svg");
+    background-size: cover;
+    width: 100vw;
+    height: 56.25vw;
+    z-index: 100;
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    /**** SKAL HAVE  class="fade_out"*********/
+}
+
+.fade_out {
+    animation-name: fade_out_kf;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade_out_kf {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.fade_in {
+    animation-name: fade_in_kf;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+
+
+}
+
+
+@keyframes fade_in_kf {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#start_play {
+    background-image: url("img/playknapv2.svg");
+    width: 17.25vw;
+    height: 6vw;
+    position: absolute;
+    top: 20vw;
+    left: 64vw;
+    background-size: 100%;
+
+
+}
+
+.pulse {
+    animation-name: pulse_kf;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+}
+
+
+@keyframes pulse_kf {
+    0% {
+        transform: scale(0.97);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+
+#start_settings {
+    background-image: url("img/settingsknap.svg");
+    width: 17.25vw;
+    height: 6.6vw;
+    position: absolute;
+    top: 30vw;
+    left: 64vw;
+    background-size: 100%;
+
+
+}
+
+#start_cat {
+    background-image: url("img/kattearmv2.svg");
+    width: 18.27vw;
+    height: 26.7vw;
+    position: absolute;
+    top: -27vw;
+    left: 58vw;
+    background-size: 100%;
+
+
+}
+
+.catarm {
+    animation-name: catarm_kf;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes catarm_kf {
+    0% {
+        transform: translateY(10vw);
+    }
+
+    50% {
+        transform: translateY(22vw);
+    }
+
+    100% {
+        transform: translateY(10vw);
+    }
+
+
+}
+
+
+/********** TITELSKÆRM SLUT ********/
+
+
+
+
+/********** ABOUT********/
 #about {
     background-image: url("img/startmenu.svg");
     background-size: 100%;
@@ -419,7 +446,7 @@ body {
 }
 
 
-/********** POPUP********/
+/********** SETTINGS********/
 
 
 #settings {
@@ -487,7 +514,7 @@ body {
 
 
 
-/********** POPUP********/
+/********** GAMEOVER********/
 
 
 #gameover {
@@ -518,7 +545,7 @@ body {
 
 
 
-/********** POPUP********/
+/********** COMPLETE********/
 
 #complete {
     background-image: url("img/youwon.svg");
