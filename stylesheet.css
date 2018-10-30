@@ -16,7 +16,7 @@ body {
 
 
 /********** TITELSKÆRM ********/
-#menu_background {
+#start {
     background-image: url("img/titelside.svg");
     background-size: cover;
     width: 100vw;
@@ -66,7 +66,7 @@ body {
     }
 }
 
-#menu_play {
+#start_play {
     background-image: url("img/playknapv2.svg");
     width: 17.25vw;
     height: 6vw;
@@ -78,7 +78,7 @@ body {
 
 }
 
-#menu_settings {
+#start_settings {
     background-image: url("img/settingsknap.svg");
     width: 17.25vw;
     height: 6.6vw;
@@ -90,7 +90,7 @@ body {
 
 }
 
-#menu_cat {
+#start_cat {
     background-image: url("img/kattearmv2.svg");
     width: 18.27vw;
     height: 26.7vw;
@@ -393,7 +393,7 @@ body {
 
 
 /********** POPUP********/
-#start {
+#about {
     background-image: url("img/startmenu.svg");
     background-size: 100%;
     width: 49.2vw;
@@ -406,7 +406,7 @@ body {
 
 }
 
-#start_play {
+#about_play {
     background-image: url("img/gebtp.svg");
     width: 17.25vw;
     height: 6vw;
