@@ -2,6 +2,11 @@ body {
     margin: 0px;
 }
 
+
+* {
+    box-sizing: border-box;
+}
+
 #game {
     width: 100vw;
     height: 56.25vw;
@@ -14,7 +19,14 @@ body {
     display: none;
 }
 
+.pause {
+    animation-play-state: paused;
+}
 
+.grab {
+    cursor: -webkit-grab;
+    cursor: grab;
+}
 
 /********** SPILSKÆRM BAGGRUND OG FORGRUND********/
 
@@ -23,7 +35,6 @@ body {
     background-size: cover;
     width: 100vw;
     height: 56.25vw;
-    /*    z-index: -100;*/
     position: absolute;
 }
 
@@ -36,24 +47,61 @@ body {
     width: 100vw;
     height: 56.25vw;
     position: absolute;
-    z-index: 80;
+    /*    z-index: 80;*/
+    pointer-events: none;
 
 }
 
 /********** GAME ELEMENTS********/
 
+
+
+/***********FORGRUNDSKVINDE **********/
+/***********FORGRUNDSKVINDE **********/
+
+
 #kvindefg {
-    background-image: url("img/kvindeloebermstreger.svg");
+    background-image: url("img/kvindeflipped.svg");
     background-size: 100%;
     width: 23.76vw;
     height: 38.28vw;
     position: absolute;
     /*    z-index: 9;*/
     top: 15vw;
-    left: -25vw;
-    /*    SKAL HAVE class="ltr"*/
+    left: 125vw;
+
 
 }
+
+.rtl_kvindefg {
+    animation-name: rtl_kvindefg_kf;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+    animation-delay: 2.5s;
+
+}
+
+@keyframes rtl_kvindefg_kf {
+    0% {
+        transform: translateX(110vw);
+    }
+
+    100% {
+        transform: translateX(-135vw);
+    }
+
+}
+
+
+
+
+
+/***********BAGGRUNDSKVINDE **********/
+/***********BAGGRUNDSKVINDE **********/
+
+
 
 #kvindebg {
     background-image: url("img/kvindeloebermstreger.svg");
@@ -68,40 +116,82 @@ body {
 
 }
 
-.ltr {
-    animation-name: lefttoright_kf;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
+
+.ltr_kvindebg {
+    animation-name: ltr_kvindebg_kf;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-fill-mode: backwards;
+    animation-delay: 1s;
+
 
 }
 
-@keyframes lefttoright_kf {
+@keyframes ltr_kvindebg_kf {
     0% {
-        transform: translateX(0vw)
+        transform: translateX(0vw);
     }
 
     100% {
-        transform: translateX(125vw)
+        transform: translateX(125vw);
     }
 
-    /*    BRUG ANIMATION DELAY*/
 }
+
+
+
+
+
+
+
+
+/***********FORGRUNDSKAT **********/
+/***********FORGRUNDSKAT **********/
+
 
 
 #katfg {
-    background-image: url("img/hvidkatloebermstreger.svg");
+    background-image: url("img/hvidkatflipped.svg");
     background-size: 100%;
     width: 11.769vw;
-    height: 10.3vw;
+    height: 10.2vw;
     position: absolute;
-    /*    z-index: 8;*/
     top: 25vw;
-    left: 102vw;
+    left: -11vw;
 
 
 }
+
+
+.ltr_katfg {
+    animation-name: lefttoright_katfg_kf;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+
+
+}
+
+@keyframes lefttoright_katfg_kf {
+    0% {
+        transform: translateX(0vw);
+    }
+
+    100% {
+        transform: translateX(125vw);
+    }
+
+}
+
+
+
+
+
+
+/***********BAGGRUNDSKAT **********/
+/***********BAGGRUNDSKAT **********/
 
 #katbg {
     background-image: url("img/hvidkatloebermstreger.svg");
@@ -109,33 +199,43 @@ body {
     width: 7.9vw;
     height: 7vw;
     position: absolute;
-    /*    z-index: 6;*/
     top: 15vw;
     left: 102vw;
 }
 
-.rtl {
-    animation-name: righttoleft_kf;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
+
+
+.rtl_katbg {
+    animation-name: rtl_katbg_kf;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-fill-mode: backwards;
+    animation-delay: 1s;
 
 }
 
-@keyframes righttoleft_kf {
+@keyframes rtl_katbg_kf {
     0% {
-        transform: translateX(110vw)
+        transform: translateX(110vw);
     }
 
     100% {
-        transform: translateX(-110vw)
+        transform: translateX(-110vw);
     }
 
-    /*    BRUG ANIMATION DELAY*/
-
-
 }
+
+
+
+
+
+
+
+
+
+/***********TWITTER **********/
+/***********TWITTER **********/
 
 #twitter {
     background-image: url("img/twitterturkis.svg");
@@ -154,6 +254,7 @@ body {
     animation-duration: 3s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    animation-delay: 6s;
     /*    animation-fill-mode: forwards;*/
 }
 
@@ -177,17 +278,28 @@ body {
 
 
 /********** GAME UI********/
+/********** GAME UI********/
 
 
-#points {
+#coins {
     background-image: url("img/coinsknap.svg");
     background-size: 100%;
     width: 5vw;
     height: 5vw;
     position: absolute;
-    z-index: 90;
+    /*    z-index: 90;*/
     top: 30vw;
     left: 3.7vw;
+}
+
+#points {
+    position: absolute;
+    z-index: 91;
+    top: 30.6vw;
+    left: 5vw;
+    font-size: 3rem;
+    font-weight: 800;
+
 }
 
 
@@ -426,7 +538,7 @@ body {
     width: 49.2vw;
     height: 45.6vw;
     position: absolute;
-    z-index: 101;
+    z-index: 99;
     top: 1vw;
     left: 25vw;
 
@@ -450,7 +562,7 @@ body {
 
 
 #settings {
-    background-image: url("img/killmeeeeee.svg");
+    background-image: url("img/settingsupdated.svg");
     background-size: 100%;
     width: 60vw;
     height: 31vw;
@@ -469,8 +581,8 @@ body {
     width: 2vw;
     height: 2.1vw;
     position: absolute;
-    top: 9.4vw;
-    left: 30.2vw;
+    top: 11.8vw;
+    left: 38.1vw;
 
 
 }
@@ -481,11 +593,12 @@ body {
     width: 2vw;
     height: 2.1vw;
     position: absolute;
-    top: 16.2vw;
-    left: 40vw;
+    top: 18.7vw;
+    left: 47vw;
 
 }
 
+/*
 #settings_knap3 {
     background-image: url("img/settingsroedknap.svg");
     background-size: 100%;
@@ -497,6 +610,7 @@ body {
 
 
 }
+*/
 
 #settings_knap4 {
     background-image: url("img/exitknap.svg");
@@ -523,7 +637,7 @@ body {
     width: 60vw;
     height: 31vw;
     position: absolute;
-    z-index: 105;
+    z-index: 99;
     top: 10vw;
     left: 22vw;
 
@@ -553,7 +667,7 @@ body {
     width: 60vw;
     height: 31vw;
     position: absolute;
-    z-index: 110;
+    z-index: 99;
     top: 10vw;
     left: 22vw;
 
