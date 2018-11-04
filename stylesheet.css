@@ -23,6 +23,10 @@ body {
     animation-play-state: paused;
 }
 
+.resume {
+    animation-play-state: running;
+}
+
 .grab {
     cursor: -webkit-grab;
     cursor: grab;
@@ -244,7 +248,7 @@ body {
     height: 25.3125vw;
     position: absolute;
     /*    z-index: 6;*/
-    top: 52vw;
+    top: 57vw;
     right: 4vw;
 
 }
@@ -264,7 +268,7 @@ body {
     }
 
     50% {
-        transform: translateY(-10vw);
+        transform: translateY(-15vw);
     }
 
     100% {
@@ -303,79 +307,136 @@ body {
 }
 
 
+#energy {
+
+    position: absolute;
+    top: 37vw;
+    left: 3.7vw;
+    display: flex;
+    justify-content: flex-start;
+        flex-direction: column;
+
+}
+
+
+.heart {
+    width: 4.4vw;
+    height: 4.4vw;
+    background-image: url(img/hjerte.svg);
+    background-size: 100%;
+    margin-right: 0.9vw;
+}
+
+
+#energyleft {
+
+    position: absolute;
+    top: 37vw;
+    left: 3.7vw;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+
+.dead {
+
+    width: 4.4vw;
+    height: 4.4vw;
+    background-image: url(img/hjertedoed.svg);
+    background-size: 100%;
+    margin-right: 0.9vw;
+
+
+
+}
+
+
+/*
 #life1 {
     background-image: url("img/hjerte.svg");
     background-size: 100%;
     width: 4.4vw;
     height: 4.4vw;
     position: absolute;
-    z-index: 90;
+
     top: 37vw;
     left: 3.7vw;
 
 }
+*/
 
+/*
 #dead1 {
     background-image: url("img/hjertedoed.svg");
     background-size: 100%;
     width: 4.4vw;
     height: 4.4vw;
     position: absolute;
-    z-index: 91;
+
     top: 37vw;
     left: 3.7vw;
 
 }
 
+*/
 
 
+/*
 #life2 {
     background-image: url("img/hjerte.svg");
     background-size: 100%;
     width: 4.4vw;
     height: 4.4vw;
     position: absolute;
-    z-index: 90;
+
     top: 42vw;
     left: 3.7vw;
 
 }
+*/
 
+/*
 #dead2 {
     background-image: url("img/hjertedoed.svg");
     background-size: 100%;
     width: 4.4vw;
     height: 4.4vw;
     position: absolute;
-    z-index: 91;
+
     top: 42vw;
     left: 3.7vw;
 
 }
+*/
 
+/*
 #life3 {
     background-image: url("img/hjerte.svg");
     background-size: 100%;
     width: 4.4vw;
     height: 4.4vw;
     position: absolute;
-    z-index: 90;
+
     top: 47vw;
     left: 3.7vw;
 
 }
+*/
 
+/*
 #dead3 {
     background-image: url("img/hjertedoed.svg");
     background-size: 100%;
     width: 4.4vw;
     height: 4.4vw;
     position: absolute;
-    z-index: 91;
+
     top: 47vw;
     left: 3.7vw;
 
 }
+*/
 
 
 #time {
@@ -575,7 +636,7 @@ body {
 
 }
 
-#settings_knap1 {
+#musictoggle {
     background-image: url("img/settingsroedknap.svg");
     background-size: 100%;
     width: 2vw;
@@ -587,7 +648,7 @@ body {
 
 }
 
-#settings_knap2 {
+#soundtoggle {
     background-image: url("img/settingsroedknap.svg");
     background-size: 100%;
     width: 2vw;
@@ -612,7 +673,7 @@ body {
 }
 */
 
-#settings_knap4 {
+#exit {
     background-image: url("img/exitknap.svg");
     background-size: 100%;
     width: 2vw;

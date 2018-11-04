@@ -1,5 +1,7 @@
 //En variabel med et tal:
+"use strict";
 let score = 0;
+let life = 3;
 
 
 window.addEventListener("load", pageLoaded);
@@ -30,7 +32,45 @@ function showStart() {
 
     document.querySelector("#start_play").addEventListener("click", hideStart);
 
+    document.querySelector("#start_settings").addEventListener("click", showSettings);
+
 }
+
+
+function showSettings() {
+    console.log("show settings");
+
+    //RYD OP:
+    document.querySelector("#start_settings").removeEventListener("click", showSettings);
+    document.querySelector("#start_play").classList.add("pause");
+
+    document.querySelector("#start_cat").classList.add("pause");
+
+    //
+
+    document.querySelector("#settings").classList.remove("hide");
+
+    document.querySelector("#musictoggle").addEventListener("click", toggleMusic);
+
+    document.querySelector("#soundtoggle").addEventListener("click", toggleSound);
+
+    document.querySelector("#exit").addEventListener("click", hideSettings);
+
+
+}
+
+function toggleMusic() {
+
+}
+
+function toggleSound() {
+
+}
+
+function hideSettings() {
+
+}
+
 
 function hideStart() {
     console.log("hide start");
@@ -131,15 +171,35 @@ function startGame() {
 
     document.querySelector("#points").innerHTML = score;
 
-
+    timeStarts();
 
 }
 
 
+function timeStarts() {
+
+    setTimeout(timesUp, 10000)
+
+}
+
+function timesUp() {
+
+    if (points >= 10) {
+
+        document.querySelector("#complete").classList.remove("hide");
+
+
+
+    } else if (points < 10) {
+
+        document.querySelector("#gameover").classList.remove("hide");
+    }
+}
 
 
 
 function clickKat() {
+
     console.log("kat clicked");
     //score = score + 5; er lig med:
     //score += 5;
@@ -157,15 +217,26 @@ function clickKat() {
     //Viser den, jeg har klikket på.
     console.log(this);
 
-    this.classList.add("pause");
+    //this.classList.add("pause");
+
+    //myVar = setTimeout(pauseFunc, 1000);
 
 
-    this.removeEventListener("click", clickKat);
+    //this.removeEventListener("click", clickKat);
+
+
+    gameStatus();
+
 
 }
 
 
+//function pauseFunc() {
+// document.querySelector("#twitter").classList.remove("pause");
 
+// document.querySelector("#twitter").classList.add("resume");
+
+//}
 
 
 //NEDTÆLLING:
@@ -175,7 +246,7 @@ function clickKvinde() {
 
 
     //hvis den bare skal gå op med en:
-    score--;
+
     //Se om det virker:
     console.log(score);
 
@@ -184,16 +255,30 @@ function clickKvinde() {
 
     document.querySelector("#points").innerHTML = score;
 
-    document.querySelector("#dead1").classList.remove("hide");
+    //document.querySelector("#life1").classList.add("hide");
+
+
+    if (this.classList.contains("type2")) {
+        console.log("Type2");
+        document.querySelector("#heart" + life).classList.add("hide");
+        life--;
+
+
+    }
+
+
+
+    //document.querySelector("#heart" + life).classList.add("hide");
 
 
     //Viser den, jeg har klikket på.
     console.log(this);
 
-    this.classList.add("pause");
-    this.removeEventListener("click", clickKvinde);
+    //this.classList.add("pause");
+    //this.removeEventListener("click", clickKvinde);
 
 
+    gameStatus();
 }
 
 
@@ -207,7 +292,11 @@ function clickTwitter() {
 
     //
 
-    document.querySelector("#dead1").classList.add("hide");
+
+
+
+
+    //document.querySelector("#life1").classList.remove("hide");
 
 
 
@@ -215,5 +304,28 @@ function clickTwitter() {
 
 
 
+
+}
+
+
+
+function gameStatus() {
+    console.log("gameStatus");
+    console.log(life);
+    if (life == 0) {
+        document.querySelector("#gameover").classList.remove("hide");
+    } else if (points == 10) {
+
+        document.querySelector("#complete").classList.remove("hide");
+    }
+
+
+}
+
+function gameOver() {
+
+}
+
+function levelCompleted() {
 
 }
