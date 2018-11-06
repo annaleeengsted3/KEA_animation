@@ -1,7 +1,11 @@
 //En variabel med et tal:
-"use strict";
+//"use strict";
 let score = 0;
 let life = 3;
+let timeLeft = 10;
+let showSettingsEffektSound = true;
+let showSettingsMusic = true;
+
 
 
 window.addEventListener("load", pageLoaded);
@@ -10,6 +14,8 @@ function pageLoaded() {
     console.log("siden vises");
     //For at teste om vi kommer derhen, god ide altid at sætte på!!
 
+    document.querySelector("#myMusic").play();
+    document.querySelector("#myMusic").loop = true;
 
     showStart();
     //Det betyder: hop ned i den funktion!
@@ -20,10 +26,12 @@ function pageLoaded() {
 
 
 
-
-
 function showStart() {
     console.log("show start");
+
+
+
+
 
     document.querySelector("#start").classList.remove("hide");
 
@@ -50,26 +58,111 @@ function showSettings() {
 
     document.querySelector("#settings").classList.remove("hide");
 
-    document.querySelector("#musictoggle").addEventListener("click", toggleMusic);
+    document.querySelector("#music").addEventListener("click", toggleMusic);
 
-    document.querySelector("#soundtoggle").addEventListener("click", toggleSound);
+    document.querySelector("#sfx").addEventListener("click", toggleSound);
 
     document.querySelector("#exit").addEventListener("click", hideSettings);
 
 
+
+
 }
+
+
+
 
 function toggleMusic() {
 
+    console.log("toggleMusic");
+
+    if (showSettingsMusic == true) {
+        showSettingsMusic = false;
+        musicOff();
+    } else {
+        showSettingsMusic = true;
+        musicOn();
+    }
+
+
 }
+
+
+function musicOff() {
+    console.log("musicOff");
+
+    document.querySelector("#music").classList.remove("on");
+    document.querySelector("#music").classList.add("off");
+
+    document.querySelector("#myMusic").muted = true;
+}
+
+function musicOn() {
+    console.log("musicOn");
+
+    document.querySelector("#music").classList.remove("off");
+    document.querySelector("#music").classList.add("on");
+
+    document.querySelector("#myMusic").muted = false;
+
+}
+
+
+
 
 function toggleSound() {
 
+    console.log("toggleSound");
+
+
+    //Tjek lyden, er lyden lig med true, dvs = =, skal lyden være lig med false, og føre ned til soundsOff.
+
+    if (showSettingsEffektSound == true) {
+        showSettingsEffektSound = false;
+        soundsOff();
+    } else {
+        showSettingsEffektSound = true;
+        soundsOn();
+    }
+
+
 }
+
+function soundsOff() {
+    console.log("soundsOff");
+
+    document.querySelector("#sfx").classList.remove("on");
+    document.querySelector("#sfx").classList.add("off");
+
+    document.querySelector("#sfx1").muted = true;
+    document.querySelector("#sfx2").muted = true;
+}
+
+function soundsOn() {
+    console.log("soundsOn");
+
+    document.querySelector("#sfx").classList.remove("off");
+    document.querySelector("#sfx").classList.add("on");
+
+    document.querySelector("#sfx1").muted = false;
+    document.querySelector("#sfx2").muted = false;
+
+}
+
+
+
+
+
+
 
 function hideSettings() {
 
+    console.log("hideSettings");
+    document.querySelector("#settings").classList.add("hide");
+
 }
+
+
 
 
 function hideStart() {
@@ -122,7 +215,9 @@ function showAbout() {
 function startGame() {
     console.log("start game");
 
+    timeLeftFc();
 
+    document.querySelector("#myMusic").volume = 0.5;
 
     //RYD OP:
 
@@ -171,30 +266,12 @@ function startGame() {
 
     document.querySelector("#points").innerHTML = score;
 
-    timeStarts();
+
 
 }
 
 
-function timeStarts() {
 
-    setTimeout(timesUp, 10000)
-
-}
-
-function timesUp() {
-
-    if (points >= 10) {
-
-        document.querySelector("#complete").classList.remove("hide");
-
-
-
-    } else if (points < 10) {
-
-        document.querySelector("#gameover").classList.remove("hide");
-    }
-}
 
 
 
@@ -209,20 +286,17 @@ function clickKat() {
     //Se om det virker:
     console.log(score);
 
+    document.querySelector("#sfx1").currentTime = 0;
+    document.querySelector("#sfx1").play();
 
-    //Nu vil vi selecte score div'en for at vise den, og overskrive hvad der står i html'en (så den skriver 2 efter 1 osv). Den sidste score er let variablen score, hvor #score er div'en. DVS inde i #score, vil vi tilføje optælleren. En str
+
 
     document.querySelector("#points").innerHTML = score;
 
     //Viser den, jeg har klikket på.
     console.log(this);
 
-    //this.classList.add("pause");
 
-    //myVar = setTimeout(pauseFunc, 1000);
-
-
-    //this.removeEventListener("click", clickKat);
 
 
     gameStatus();
@@ -231,12 +305,6 @@ function clickKat() {
 }
 
 
-//function pauseFunc() {
-// document.querySelector("#twitter").classList.remove("pause");
-
-// document.querySelector("#twitter").classList.add("resume");
-
-//}
 
 
 //NEDTÆLLING:
@@ -245,8 +313,8 @@ function clickKvinde() {
     console.log("kvinde clicked");
 
 
-    //hvis den bare skal gå op med en:
-
+    //
+    score--;
     //Se om det virker:
     console.log(score);
 
@@ -257,21 +325,23 @@ function clickKvinde() {
 
     //document.querySelector("#life1").classList.add("hide");
 
-
-    if (this.classList.contains("type2")) {
-        console.log("Type2");
-        document.querySelector("#heart" + life).classList.add("hide");
-        life--;
+    life--;
 
 
-    }
+
+    document.querySelector("#heart" + life).classList.add("hide");
+
+
+
+    document.querySelector("#sfx2").currentTime = 0;
+    document.querySelector("#sfx2").play();
 
 
 
     //document.querySelector("#heart" + life).classList.add("hide");
 
 
-    //Viser den, jeg har klikket på.
+
     console.log(this);
 
     //this.classList.add("pause");
@@ -291,6 +361,15 @@ function clickTwitter() {
     document.querySelector("#twitter").removeEventListener("click", clickTwitter);
 
     //
+
+    life++;
+
+
+    document.querySelector("#heart" + life).classList.remove("hide");
+
+
+
+
 
 
 
@@ -313,19 +392,58 @@ function gameStatus() {
     console.log("gameStatus");
     console.log(life);
     if (life == 0) {
-        document.querySelector("#gameover").classList.remove("hide");
+        gameOver();
     } else if (points == 10) {
 
-        document.querySelector("#complete").classList.remove("hide");
+        gameWon();
     }
+
+
+
+}
+
+
+
+
+function timeLeftFc() {
+    console.log("function time_left=" + timeLeft);
+
+    if (timeLeft > 0) {
+        timeLeft--;
+        setTimeout(timeLeft, 1000);
+    } else {
+        gameOver();
+    }
+
 
 
 }
 
 function gameOver() {
+    document.querySelector("#gameover").classList.remove("hide");
+    timeLeft = 0;
+
+    document.querySelector("#playagain_knap").addEventListener("click", gameReset);
+    document.querySelector("#playagain_knap").addEventListener("click", startGame);
+}
+
+function gameWon() {
 
 }
 
-function levelCompleted() {
+
+function gameReset() {
+
+    //Når man trykker play_again:
+
+   location = location.href;
+
+    //reset music
+
+//    let score = 0;
+ //    let life = 3;
+ //    let time = 10;
+
+    //startGame();
 
 }

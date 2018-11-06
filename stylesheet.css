@@ -162,7 +162,7 @@ body {
     height: 10.2vw;
     position: absolute;
     top: 25vw;
-    left: -11vw;
+    left: -12vw;
 
 
 }
@@ -300,8 +300,8 @@ body {
     position: absolute;
     z-index: 91;
     top: 30.6vw;
-    left: 5vw;
-    font-size: 3rem;
+    left: 5.1vw;
+    font-size: 3vw;
     font-weight: 800;
 
 }
@@ -314,7 +314,7 @@ body {
     left: 3.7vw;
     display: flex;
     justify-content: flex-start;
-        flex-direction: column;
+    flex-direction: column;
 
 }
 
@@ -469,7 +469,7 @@ body {
 
 .fade_out {
     animation-name: fade_out_kf;
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -508,9 +508,9 @@ body {
 }
 
 #start_play {
-    background-image: url("img/playknapv2.svg");
+    background-image: url("img/americaplaybutton.svg");
     width: 17.25vw;
-    height: 6vw;
+    height: 6.3vw;
     position: absolute;
     top: 20vw;
     left: 64vw;
@@ -636,27 +636,45 @@ body {
 
 }
 
-#musictoggle {
+#music {
     background-image: url("img/settingsroedknap.svg");
     background-size: 100%;
     width: 2vw;
     height: 2.1vw;
     position: absolute;
     top: 11.8vw;
-    left: 38.1vw;
+    /*    left: 38.1vw;*/
 
 
 }
 
-#soundtoggle {
+
+
+
+
+#sfx {
     background-image: url("img/settingsroedknap.svg");
     background-size: 100%;
     width: 2vw;
     height: 2.1vw;
     position: absolute;
     top: 18.7vw;
-    left: 47vw;
+    /*    left: 47vw;*/
 
+}
+
+
+
+.on {
+
+
+    left: 47vw;
+}
+
+.off {
+
+
+    left: 38.1vw;
 }
 
 /*
